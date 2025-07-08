@@ -6,23 +6,17 @@ import pysam
 # Target variants for Alzheimer's disease sensitive allele frequency analysis
 # These are the most clinically significant and population-variable SNPs for AD research
 TARGET_VARIANTS = [
-    # Primary APOE variants (most critical for AD risk)
-    "rs429358",    # APOE ε4 defining SNP - 3-12x increased AD risk
-    "rs7412",      # APOE ε2 defining SNP - protective variant
-    
-    # Secondary high-impact variants
-    "rs2075650",   # TOMM40 gene - 2-4x higher AD risk, linked to APOE
-    "rs199768005", # APOE rare variant - pathogenic significance
-    "rs6857",      # NECTIN2 gene - age-at-onset modifier
-    
-    # Alternative specification by genomic coordinates (GRCh38)
-    # Useful if rsIDs are not available in VCF
-    ("19", 44908684, "C"),   # rs429358 - APOE ε4 (C=risk allele)
-    ("19", 44908822, "T"),   # rs7412 - APOE ε2 (T=protective allele)  
-    ("19", 44892362, "G"),   # rs2075650 - TOMM40 (G=risk allele)
-    ("19", 44909057, "A"),   # rs199768005 - APOE rare variant
-    ("19", 44888997, "A"),   # rs6857 - NECTIN2 variant
-]
+    ("rs429358", 12.0),    # APOE ε4 homozygotes (late-onset AD OR ≈12:contentReference[oaicite:6]{index=6})
+    ("rs7412", 0.62),      # APOE ε2 allele (protective; OR≈0.62, 38% reduced risk:contentReference[oaicite:7]{index=7})
+    ("rs2075650", 4.18),   # TOMM40 (tags APOE ε4); risk allele OR≈4.18:contentReference[oaicite:8]{index=8}
+    ("rs199768005", 0.10), # Rare APOE (p.V236E) variant; OR≈0.10 (highly protective):contentReference[oaicite:9]{index=9}
+    ("rs6857", 1.27),      # NECTIN2 (APOE locus) variant; risk allele OR≈1.27
+    ("rs11136000", 1.19),  # CLU variant; OR≈1.19
+    ("rs3851179", 1.18),   # PICALM variant; OR≈1.18
+    ("rs6733839", 1.22),   # BIN1 variant; OR≈1.22
+    ("rs6656401", 1.18),   # CR1 variant; OR≈1.18
+    ("rs3764650", 1.23),   # ABCA7 variant; OR≈1.23
+], # ref https://chatgpt.com/s/dr_686c84c4b4b48191b3c779a6393f15f0
 
 def make_record_map(vcf_path):
     """Create mapping from variant identifiers to genotype values."""
@@ -78,5 +72,6 @@ def encode_vcf(vcf_path: str) -> List[int]:
     For privacy-sensitive allele frequency analysis of Alzheimer's disease variants.
     """
     record_map = make_record_map(vcf_path)
-    encoded_data = list(encode_on_variant_list(record_map, TARGET_VARIANTS))
+    variants_list = [_[0] for _ in TARGET_VARIANTS]
+    encoded_data = list(encode_on_variant_list(record_map, variants_list))
     return encoded_data
