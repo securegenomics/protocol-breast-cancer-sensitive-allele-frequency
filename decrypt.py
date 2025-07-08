@@ -22,7 +22,7 @@ TARGET_VARIANTS = [
     ("rs6733839", 1.22, 'BIN1'),   # BIN1 variant; OR≈1.22
     ("rs6656401", 1.18, 'CR1'),   # CR1 variant; OR≈1.18
     ("rs3764650", 1.23, 'ABCA7'),   # ABCA7 variant; OR≈1.23
-], # same in encode.py
+] # same in encode.py
 
 def interpret_result(result):
     # remove the extra one at the end to count the number of alleles
