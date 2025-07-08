@@ -16,7 +16,7 @@ TARGET_VARIANTS = [
     ("rs6733839", 1.22),   # BIN1 variant; OR≈1.22
     ("rs6656401", 1.18),   # CR1 variant; OR≈1.18
     ("rs3764650", 1.23),   # ABCA7 variant; OR≈1.23
-], # ref https://chatgpt.com/s/dr_686c84c4b4b48191b3c779a6393f15f0
+] # ref https://chatgpt.com/s/dr_686c84c4b4b48191b3c779a6393f15f0
 
 def make_record_map(vcf_path):
     """Create mapping from variant identifiers to genotype values."""
