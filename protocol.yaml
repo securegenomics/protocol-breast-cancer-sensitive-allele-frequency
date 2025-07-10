@@ -7,7 +7,6 @@ contact: "research@securegenomics.com"
 # Computation modes supported
 modes:
   - aggregated  # Supports FHE aggregated computation
-  - local       # Supports local-only analysis
 
 # FHE parameters for aggregated computation
 fhe_params:
