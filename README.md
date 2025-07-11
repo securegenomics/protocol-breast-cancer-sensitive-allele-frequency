@@ -2,6 +2,7 @@ Breast Cancer Risk Variants
 
 https://chatgpt.com/s/dr_686c84c4b4b48191b3c779a6393f15f0
 
+```python
 TARGET_VARIANTS_BREAST_CANCER = [
     ("rs2981579", 1.27),   # FGFR2 proxy SNP; OR≈1.27:contentReference[oaicite:20]{index=20}
     ("rs3803662", 1.28),   # TOX3 SNP; OR≈1.28
@@ -16,3 +17,4 @@ TARGET_VARIANTS_BREAST_CANCER = [
     ("rs180177102", 3.00), # PALB2 truncating; OR≈3.0
     ("rs555607708", 2.34), # CHEK2 1100delC; OR≈2.34:contentReference[oaicite:23]{index=23}
 ]
+```
